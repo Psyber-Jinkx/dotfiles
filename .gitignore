@@ -25,3 +25,13 @@ EOF
 
 # VS Code workspace settings
 **/.vscode/
+
+# Themesw state
+themesw/current
+
+# Generated theme links
+alacritty/theme.toml
+hypr/config/colors/init.lua
+rofi/themes/colors/colors.rasi
+swaync/colors/colors.css
+spicetify/Themes/Custom/user.css
