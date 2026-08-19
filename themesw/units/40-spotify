@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cd "$HOME/.config/spicetify/Themes/Custom"
+
+ln -fs "CSS/$1.css" user.css
+
+spicetify refresh
+
+if pgrep -x spotify >/dev/null; then
+    pkill -x spotify
+    hyprctl dispatch 'hl.dsp.exec_raw("spotify-launcher")'
+fi

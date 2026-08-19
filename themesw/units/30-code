@@ -1,0 +1,35 @@
+#!/bin/bash
+
+cd "$HOME/.config/VSCodium/User/"
+
+case "$1" in
+    kripton)
+        THEME="Tokyo Night Dark Enhanced"
+        ;;
+
+    tokyonight)
+        THEME="Tokyo Night Dark Enhanced"
+        ;;
+
+    catppuccin)
+        THEME="Catppuccin Mocha"
+        ;;
+
+    gruvbox)
+        THEME="Gruvbox Dark Hard"
+        ;;
+
+    nord)
+        THEME="Nord"
+        ;;
+
+    *)
+        exit 1
+        ;;
+esac
+
+TMP=$(mktemp)
+
+jq --arg theme "$THEME" \
+    '.["workbench.colorTheme"] = $theme' \
+    "settings.json" > "$TMP" && mv "$TMP" "settings.json"

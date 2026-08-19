@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd "$HOME/.config/nwg-dock-hyprland/colors"
+
+ln -fs "colors.$1.css" colors.css
+
+pkill -f nwg-dock-hyprland
+
+"$HOME/.local/bin/dock" &

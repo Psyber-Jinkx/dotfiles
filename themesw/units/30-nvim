@@ -1,0 +1,40 @@
+#!/bin/bash
+
+FILE="$HOME/.config/nvim/lua/plugins/theme.lua"
+
+case "$1" in
+    kripton)
+        THEME="tokyonight"
+        ;;
+
+    tokyonight)
+        THEME="tokyonight"
+        ;;
+
+    catppuccin)
+        THEME="catppuccin"
+        ;;
+
+    gruvbox)
+        THEME="gruvbox"
+        ;;
+
+    nord)
+        THEME="nord"
+        ;;
+
+    *)
+        exit 1
+        ;;
+esac
+
+cat > "$FILE" << EOF
+return {
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "$THEME",
+    },
+  },
+}
+EOF

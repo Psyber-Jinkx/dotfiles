@@ -1,0 +1,27 @@
+# Python
+**/__pycache__/
+
+# Build/test artifacts
+test/
+dest/
+
+# Logs
+*.log
+
+# Generated GTK files (ThemesW manages these)
+gtk-3.0/gtk.css
+gtk-3.0/settings.ini
+gtk-4.0/settings.ini
+
+# Editor temp files
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.tmp
+EOF
+
+# VS Code workspace settings
+**/.vscode/

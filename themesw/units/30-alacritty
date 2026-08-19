@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd "$HOME/.config/alacritty"
+
+ln -fs "theme.$1.toml" theme.toml

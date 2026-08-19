@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd "$HOME/.config/swaync/colors"
+
+ln -fs "colors.$1.css" colors.css
+
+swaync-client -rs

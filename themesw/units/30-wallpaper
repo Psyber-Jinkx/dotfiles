@@ -1,0 +1,48 @@
+#!/bin/bash
+
+WALLPAPER_LIGHT_DEF="$HOME/med/pictures/wallpapers/dragons_lake_fog_white_boat_person.jpg"
+WALLPAPER_DARK_DEF="$HOME/med/pictures/wallpapers/rain_road_tree_foggy_bush_flowers_girl_umbrela_grey_outside_mountain.jpg"
+
+WALLPAPER_LIGHT="${WALLPAPER_LIGHT:-$WALLPAPER_LIGHT_DEF}"
+WALLPAPER_DARK="${WALLPAPER_DARK:-$WALLPAPER_DARK_DEF}"
+
+AUTO_WALLS_DIR="$HOME/.local/state/auto_walls"
+
+if [[ -f "$AUTO_WALLS_DIR/wallpaper.last.$1" ]]; then
+    echo "taken"
+    WALLPAPER=$(< "$AUTO_WALLS_DIR/wallpaper.last.$1")
+else
+    case "$1" in
+        kripton)
+            WALLPAPER=$WALLPAPER_DARK
+            ;;
+
+        gruvbox)
+            WALLPAPER=$WALLPAPER_DARK
+            ;;
+
+        tokyonight)
+            WALLPAPER=$WALLPAPER_LIGHT
+            ;;
+
+        catppuccin)
+            WALLPAPER=$WALLPAPER_LIGHT
+            ;;
+
+        nord)
+            WALLPAPER=$WALLPAPER_LIGHT
+            ;;
+
+        *)
+            WALLPAPER=$WALLPAPER_DARK
+            ;;
+    esac
+fi
+
+echo "$WALLPAPER"
+
+CURRENT_WALLPAPER=$(awww query -j | jq -r '.[""][].displaying.image')
+
+if [[ $CURRENT_WALLPAPER != $WALLPAPER ]]; then
+    ~/.local/bin/auto_walls set "$WALLPAPER" &
+fi

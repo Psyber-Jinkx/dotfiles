@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd "$HOME/.config/hypr/config/colors"
+
+ln -fs "colors.$1.lua" init.lua
+
+hyprctl reload config-only

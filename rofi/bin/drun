@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# I have a custom patch for rofi that adds categories for drun appliactions.
+# You can click and select shown only games, utils, etc.
+# if you want those, take a look here: https://github.com/cebem1nt/rofi/releases/tag/patch
+#
+# And replace with this one:
+#
+# rofi -theme $THEME \
+#      -show drun \
+#      -modi "drun,drun-utils,drun-games,drun-network,drun-media" \
+#      -drun-exclude-categories "Game" \
+#      -display-drun "" \
+#      -display-drun-games "󰊴" \
+#      -display-drun-utils "" \
+#      -display-drun-network "󰭹" \
+#      -display-drun-media "󰲍" \
+
+THEME="$HOME/.config/rofi/themes/launcher.rasi"
+
+if [[ "$1" == "--alternative" ]]; then
+     THEME="$HOME/.config/rofi/themes/launcher-alternative.rasi"
+fi
+
+rofi -theme $THEME \
+     -show drun \
+     -modi "drun,run,filebrowser" \
+     -display-drun "" \
+     -display-run "" \
+     -display-filebrowser "󰉋" \
