@@ -1,0 +1,14 @@
+@define-color center-bg                 rgba({{BACKGROUND_RGB}}, 0.8);
+@define-color notification-bg           rgba({{BACKGROUND_RGB}}, 0.9);
+
+@define-color center-notification-bg    #{{BACKGROUND_ELEVATED}};
+
+@define-color background                rgba({{BACKGROUND_RGB}}, 0.9);
+@define-color background-alt            #{{BACKGROUND_ELEVATED}};
+
+@define-color text                      #{{TEXT}};
+@define-color text-alt                  #{{TEXT_MUTED}};
+
+@define-color selected                  #{{ACCENT}};
+@define-color hover                     #{{ACCENT_ALT}};
+@define-color urgent                    #{{COLOR_RED}};

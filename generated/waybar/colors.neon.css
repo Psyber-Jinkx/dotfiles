@@ -1,0 +1,13 @@
+@define-color module-bg     rgba(8, 6, 13, 0.90);
+@define-color tooltip-bg    @module-bg;
+
+@define-color inactive      #8e65c7;
+@define-color fg            #d8b4ff;
+@define-color workspace-fg  @fg;
+
+@define-color highlight     #00dfff;
+
+@define-color red           #ff4d6d;
+@define-color blue          #ff5cd9;
+@define-color yellow        #ffd54a;
+@define-color green         #00ff9d;

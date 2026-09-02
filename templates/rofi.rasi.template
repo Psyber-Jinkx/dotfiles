@@ -1,0 +1,18 @@
+* {
+    background:     #{{BACKGROUND}}E5;
+    background-alt: #{{BACKGROUND_ELEVATED}}FF;
+    background-sec: #{{ACCENT}}FF;
+
+    foreground:     #{{TEXT}}FF;
+    foreground-alt: #{{TEXT_MUTED}}FF;
+
+    border:         #{{BORDER}}FF;
+
+    selected:       #{{TEXT}}FF;
+
+    active:         #{{SUCCESS}}FF;
+    warning:        #{{WARNING}}FF;
+    urgent:         #{{URGENT}}FF;
+
+    highlight:      #{{ACCENT_ALT}}22;
+}

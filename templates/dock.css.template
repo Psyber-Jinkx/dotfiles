@@ -1,0 +1,7 @@
+@define-color background        rgba({{BACKGROUND_RGB}}, 0.9);
+@define-color menu-bg           #{{BACKGROUND_ELEVATED}};
+@define-color button-bg         #{{BACKGROUND_ELEVATED}};
+
+@define-color fg                #{{TEXT}};
+@define-color highlight         #{{ACCENT}};
+@define-color button-highlight  #{{ACCENT_ALT}};

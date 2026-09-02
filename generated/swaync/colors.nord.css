@@ -1,0 +1,14 @@
+@define-color center-bg                 rgba(46, 52, 64, 0.8);
+@define-color notification-bg           rgba(46, 52, 64, 0.9);
+
+@define-color center-notification-bg    #3b4252;
+
+@define-color background                rgba(46, 52, 64, 0.9);
+@define-color background-alt            #3b4252;
+
+@define-color text                      #eceff4;
+@define-color text-alt                  #d8dee9;
+
+@define-color selected                  #88c0d0;
+@define-color hover                     #81a1c1;
+@define-color urgent                    #bf616a;

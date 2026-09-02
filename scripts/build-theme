@@ -1,0 +1,179 @@
+#!/bin/bash
+
+DOTFILES_DIR="$HOME/.dotfiles"
+
+generate_hypr_theme() {
+    local THEME_NAME="$1"
+
+    sed \
+        -e "s/{{ACCENT}}/$ACCENT/g" \
+        -e "s/{{ACCENT_ALT}}/$ACCENT_ALT/g" \
+        -e "s/{{TEXT}}/$TEXT/g" \
+        -e "s/{{TEXT_MUTED}}/$TEXT_MUTED/g" \
+        -e "s/{{BACKGROUND}}/$BACKGROUND/g" \
+        -e "s/{{BORDER}}/$BORDER/g" \
+        "$DOTFILES_DIR/templates/hypr.lua.template" \
+        > "$DOTFILES_DIR/generated/hypr/colors.$THEME_NAME.lua"
+
+    echo "Generated Hyprland: $THEME_NAME"
+}
+
+generate_alacritty_theme() {
+    local THEME_NAME="$1"
+
+    sed \
+        -e "s/{{ACCENT}}/$ACCENT/g" \
+        -e "s/{{ACCENT_ALT}}/$ACCENT_ALT/g" \
+        -e "s/{{TEXT}}/$TEXT/g" \
+        -e "s/{{BACKGROUND}}/$BACKGROUND/g" \
+        -e "s/{{BACKGROUND_ELEVATED}}/$BACKGROUND_ELEVATED/g" \
+        -e "s/{{BORDER}}/$BORDER/g" \
+        -e "s/{{SUCCESS}}/$SUCCESS/g" \
+        -e "s/{{WARNING}}/$WARNING/g" \
+        -e "s/{{URGENT}}/$URGENT/g" \
+        -e "s/{{COLOR_RED}}/$COLOR_RED/g" \
+        -e "s/{{COLOR_BLACK}}/$COLOR_BLACK/g" \
+        -e "s/{{COLOR_GREEN}}/$COLOR_GREEN/g" \
+        -e "s/{{COLOR_YELLOW}}/$COLOR_YELLOW/g" \
+        -e "s/{{COLOR_BLUE}}/$COLOR_BLUE/g" \
+        -e "s/{{COLOR_MAGENTA}}/$COLOR_MAGENTA/g" \
+        -e "s/{{COLOR_CYAN}}/$COLOR_CYAN/g" \
+        -e "s/{{COLOR_WHITE}}/$COLOR_WHITE/g" \
+        -e "s/{{COLOR_BRIGHT_BLACK}}/$COLOR_BRIGHT_BLACK/g" \
+        -e "s/{{COLOR_BRIGHT_RED}}/$COLOR_BRIGHT_RED/g" \
+        -e "s/{{COLOR_BRIGHT_GREEN}}/$COLOR_BRIGHT_GREEN/g" \
+        -e "s/{{COLOR_BRIGHT_YELLOW}}/$COLOR_BRIGHT_YELLOW/g" \
+        -e "s/{{COLOR_BRIGHT_BLUE}}/$COLOR_BRIGHT_BLUE/g" \
+        -e "s/{{COLOR_BRIGHT_MAGENTA}}/$COLOR_BRIGHT_MAGENTA/g" \
+        -e "s/{{COLOR_BRIGHT_CYAN}}/$COLOR_BRIGHT_CYAN/g" \
+        -e "s/{{COLOR_BRIGHT_WHITE}}/$COLOR_BRIGHT_WHITE/g" \
+        "$DOTFILES_DIR/templates/alacritty.toml.template" \
+        > "$DOTFILES_DIR/generated/alacritty/theme.$THEME_NAME.toml"
+
+    echo "Generated Alacritty: $THEME_NAME"
+}
+
+generate_rofi_theme() {
+    local THEME_NAME="$1"
+
+    sed \
+        -e "s/{{BACKGROUND}}/$BACKGROUND/g" \
+        -e "s/{{BACKGROUND_ELEVATED}}/$BACKGROUND_ELEVATED/g" \
+        -e "s/{{TEXT}}/$TEXT/g" \
+        -e "s/{{TEXT_MUTED}}/$TEXT_MUTED/g" \
+        -e "s/{{ACCENT}}/$ACCENT/g" \
+        -e "s/{{ACCENT_ALT}}/$ACCENT_ALT/g" \
+        -e "s/{{BORDER}}/$BORDER/g" \
+        -e "s/{{SUCCESS}}/$SUCCESS/g" \
+        -e "s/{{WARNING}}/$WARNING/g" \
+        -e "s/{{URGENT}}/$URGENT/g" \
+        "$DOTFILES_DIR/templates/rofi.rasi.template" \
+        > "$DOTFILES_DIR/generated/rofi/colors.$THEME_NAME.rasi"
+
+    echo "Generated Rofi: $THEME_NAME"
+}
+
+generate_swaync_theme() {
+    local THEME_NAME="$1"
+
+    sed \
+        -e "s/{{BACKGROUND_RGB}}/$BACKGROUND_RGB/g" \
+        -e "s/{{BACKGROUND_ELEVATED}}/$BACKGROUND_ELEVATED/g" \
+        -e "s/{{TEXT}}/$TEXT/g" \
+        -e "s/{{TEXT_MUTED}}/$TEXT_MUTED/g" \
+        -e "s/{{ACCENT}}/$ACCENT/g" \
+        -e "s/{{ACCENT_ALT}}/$ACCENT_ALT/g" \
+        -e "s/{{COLOR_RED}}/$COLOR_RED/g" \
+        "$DOTFILES_DIR/templates/swaync.css.template" \
+        > "$DOTFILES_DIR/generated/swaync/colors.$THEME_NAME.css"
+
+    echo "Generated SwayNC: $THEME_NAME"
+}
+
+generate_dock_theme() {
+    local THEME_NAME="$1"
+
+    sed \
+        -e "s/{{BACKGROUND_RGB}}/$BACKGROUND_RGB/g" \
+        -e "s/{{BACKGROUND_ELEVATED}}/$BACKGROUND_ELEVATED/g" \
+        -e "s/{{TEXT}}/$TEXT/g" \
+        -e "s/{{TEXT_MUTED}}/$TEXT_MUTED/g" \
+        -e "s/{{ACCENT}}/$ACCENT/g" \
+        -e "s/{{ACCENT_ALT}}/$ACCENT_ALT/g" \
+        "$DOTFILES_DIR/templates/dock.css.template" \
+        > "$DOTFILES_DIR/generated/dock/colors.$THEME_NAME.css"
+
+    echo "Generated Dock: $THEME_NAME"
+}
+
+generate_spotify_theme() {
+    local THEME_NAME="$1"
+
+    sed \
+        -e "s/{{ACCENT}}/$ACCENT/g" \
+        -e "s/{{ACCENT_ALT}}/$ACCENT_ALT/g" \
+        -e "s/{{TEXT_MUTED}}/$TEXT_MUTED/g" \
+        -e "s/{{BACKGROUND}}/$BACKGROUND/g" \
+        -e "s/{{BACKGROUND_ELEVATED}}/$BACKGROUND_ELEVATED/g" \
+        "$DOTFILES_DIR/templates/spotify.css.template" \
+        > "$DOTFILES_DIR/generated/spotify/$THEME_NAME.css"
+
+    echo "Generated Spotify: $THEME_NAME"
+}
+
+generate_waybar_theme() {
+    local THEME_NAME="$1"
+
+    sed \
+        -e "s/{{BACKGROUND_RGB}}/$BACKGROUND_RGB/g" \
+        -e "s/{{TEXT}}/$TEXT/g" \
+        -e "s/{{TEXT_MUTED}}/$TEXT_MUTED/g" \
+        -e "s/{{ACCENT}}/$ACCENT/g" \
+        -e "s/{{ACCENT_ALT}}/$ACCENT_ALT/g" \
+        -e "s/{{SUCCESS}}/$SUCCESS/g" \
+        -e "s/{{WARNING}}/$WARNING/g" \
+        -e "s/{{URGENT}}/$URGENT/g" \
+        "$DOTFILES_DIR/templates/waybar.css.template" \
+        > "$DOTFILES_DIR/generated/waybar/colors.$THEME_NAME.css"
+
+    echo "Generated Waybar: $THEME_NAME"
+}
+
+generate_theme() {
+    local THEME_NAME="$1"
+
+    local THEME_FILE="$DOTFILES_DIR/themes/$THEME_NAME.conf"
+
+    if [[ ! -f "$THEME_FILE" ]]; then
+        echo "Theme not found: $THEME_NAME"
+        return 1
+    fi
+
+    source "$THEME_FILE"
+
+    generate_hypr_theme "$THEME_NAME"
+    generate_alacritty_theme "$THEME_NAME"
+    generate_rofi_theme "$THEME_NAME"
+    generate_swaync_theme "$THEME_NAME"
+    generate_dock_theme "$THEME_NAME"
+    generate_spotify_theme "$THEME_NAME"
+    generate_waybar_theme "$THEME_NAME"
+}
+
+if [[ "$1" == "--all" ]]; then
+    SCHEMES_FILE="$DOTFILES_DIR/generated/themesw/schemes"
+
+    mkdir -p "$(dirname "$SCHEMES_FILE")"
+
+    > "$SCHEMES_FILE"
+
+    for THEME in "$DOTFILES_DIR"/themes/*.conf; do
+        THEME_NAME=$(basename "$THEME" .conf)
+
+        echo "$THEME_NAME" >> "$SCHEMES_FILE"
+
+        generate_theme "$THEME_NAME"
+    done
+else
+    generate_theme "$1"
+fi

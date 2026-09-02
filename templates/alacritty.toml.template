@@ -1,0 +1,63 @@
+[colors.primary]
+background = "#{{BACKGROUND}}"
+foreground = "#{{TEXT}}"
+
+[colors.cursor]
+text = "#{{BACKGROUND}}"
+cursor = "#{{ACCENT}}"
+
+[colors.selection]
+text = "#{{BACKGROUND}}"
+background = "#{{ACCENT}}"
+
+[colors.normal]
+black = "#{{COLOR_BLACK}}"
+red = "#{{COLOR_RED}}"
+green = "#{{COLOR_GREEN}}"
+yellow = "#{{COLOR_YELLOW}}"
+blue = "#{{COLOR_BLUE}}"
+magenta = "#{{COLOR_MAGENTA}}"
+cyan = "#{{COLOR_CYAN}}"
+white = "#{{COLOR_WHITE}}"
+
+[colors.bright]
+black = "#{{COLOR_BRIGHT_BLACK}}"
+red = "#{{COLOR_BRIGHT_RED}}"
+green = "#{{COLOR_BRIGHT_GREEN}}"
+yellow = "#{{COLOR_BRIGHT_YELLOW}}"
+blue = "#{{COLOR_BRIGHT_BLUE}}"
+magenta = "#{{COLOR_BRIGHT_MAGENTA}}"
+cyan = "#{{COLOR_BRIGHT_CYAN}}"
+white = "#{{COLOR_BRIGHT_WHITE}}"
+
+[colors.search.matches]
+foreground = "#{{BACKGROUND}}"
+background = "#{{WARNING}}"
+
+[colors.search.focused_match]
+foreground = "#{{BACKGROUND}}"
+background = "#{{SUCCESS}}"
+
+[colors.footer_bar]
+foreground = "#{{TEXT}}"
+background = "#{{BACKGROUND_ELEVATED}}"
+
+[colors.hints.start]
+foreground = "#{{BACKGROUND}}"
+background = "#{{WARNING}}"
+
+[colors.hints.end]
+foreground = "#{{TEXT}}"
+background = "#{{BACKGROUND_ELEVATED}}"
+
+[colors.line_indicator]
+foreground = "None"
+background = "#{{BACKGROUND_ELEVATED}}"
+
+[[colors.indexed_colors]]
+index = 16
+color = "#{{WARNING}}"
+
+[[colors.indexed_colors]]
+index = 17
+color = "#{{URGENT}}"

@@ -1,0 +1,7 @@
+@define-color background        rgba(10, 10, 13, 0.9);
+@define-color menu-bg           #101014;
+@define-color button-bg         #101014;
+
+@define-color fg                #acb0d0;
+@define-color highlight         #787c99;
+@define-color button-highlight  #9ea1b9;
