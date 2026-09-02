@@ -35,3 +35,6 @@ hypr/config/colors/init.lua
 rofi/themes/colors/colors.rasi
 swaync/colors/colors.cssit s
 spicetify/Themes/Custom/user.cssyou're lame
+
+# Shell History
+zsh/.zsh_history

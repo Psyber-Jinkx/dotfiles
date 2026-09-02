@@ -22,6 +22,8 @@ local startup = {
     "~/.local/bin/dock", -- dock
     "~/.local/bin/at_startup", -- Misc user defined custom shell scripts
     "kanshi", -- Monitor Manager
+    "wl-paste --type text --watch cliphist store", -- For Clipboard thingy
+    "wl-paste --type image --watch cliphist store", -- For Clipboard thingy
 }
 
 hl.on("hyprland.start", function()
