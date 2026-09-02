@@ -8,14 +8,6 @@
 
 local colors = require("config.colors") -- Dynamic color scheme for border/misc colors
 
-print("border.active:", colors.border.active, type(colors.border.active))
-print("border.inactive:", colors.border.inactive, type(colors.border.inactive))
-print("group.active:", colors.group.active, type(colors.group.active))
-print("group.inactive:", colors.group.inactive, type(colors.group.inactive))
-print("groupbar.active:", colors.groupbar.active, type(colors.groupbar.active))
-print("groupbar.inactive:", colors.groupbar.inactive, type(colors.groupbar.inactive))
-print("groupbar.text:", colors.group.text, type(colors.group.text))
-
 hl.config({
     general = {
         gaps_in = 2,
@@ -96,8 +88,8 @@ hl.config({
     decoration = {
         rounding = 15,
 
-        dim_inactive = false,
-        dim_strength = 0.12,
+        dim_inactive = true,
+        dim_strength = 0.2,
 
         blur = {
             enabled = false,

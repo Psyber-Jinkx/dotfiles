@@ -162,20 +162,32 @@ hl.bind("CTRL + Print",           run_script("screenrec"))                      
 hl.bind("CTRL + SHIFT + Print",   run_script("screenrec --select"))              -- Screen record selected area
 
 
--- Move focus:   SUPER + arrow keys
--- Move windows: SUPER + CTRL + arrow keys
--- Swap windows: SUPER + SHIFT + arrow keys
-for _, dir in ipairs({ "left", "right", "up", "down" }) do
-    hl.bind("SUPER + " .. dir,          hl.dsp.focus({ direction = dir }))
-    hl.bind("SUPER + CTRL + " .. dir,   hl.dsp.window.move({ direction = dir }))
-    hl.bind("SUPER + SHIFT + " .. dir,  hl.dsp.window.swap({ direction = dir }))
+local vim_dirs = {
+    H = "left",
+    J = "down",
+    K = "up",
+    L = "right",
+}
+
+for key, dir in pairs(vim_dirs) do
+    -- Move focus
+    hl.bind("SUPER + " .. key,
+        hl.dsp.focus({ direction = dir }))
+
+    -- Move windows
+    hl.bind("SUPER + CTRL + " .. key,
+        hl.dsp.window.move({ direction = dir }))
+
+    -- Swap windows
+    hl.bind("SUPER + SHIFT + " .. key,
+        hl.dsp.window.swap({ direction = dir }))
 end
 
 -- Resize active window
-hl.bind("SUPER + CTRL + SHIFT + left",  hl.dsp.window.resize({ x = -70, y = 0,   relative = true }))
-hl.bind("SUPER + CTRL + SHIFT + right", hl.dsp.window.resize({ x =  70, y = 0,   relative = true }))
-hl.bind("SUPER + CTRL + SHIFT + up",    hl.dsp.window.resize({ x = 0,   y = -70, relative = true }))
-hl.bind("SUPER + CTRL + SHIFT + down",  hl.dsp.window.resize({ x = 0,   y =  70, relative = true }))
+hl.bind("SUPER + CTRL + SHIFT + H",  hl.dsp.window.resize({ x = -70, y = 0,   relative = true }))
+hl.bind("SUPER + CTRL + SHIFT + L", hl.dsp.window.resize({ x =  70, y = 0,   relative = true }))
+hl.bind("SUPER + CTRL + SHIFT + K",    hl.dsp.window.resize({ x = 0,   y = -70, relative = true }))
+hl.bind("SUPER + CTRL + SHIFT + J",  hl.dsp.window.resize({ x = 0,   y =  70, relative = true }))
 
 -- Switch workspaces: SUPER + [1-workspaces]
 -- Move active window to workspace: SUPER + SHIFT [1-workspaces]
@@ -230,7 +242,3 @@ hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.bind("SUPER + comma", run("hyprctl dispatch movecurrentworkspacetomonitor eDP-1"))
 hl.bind("SUPER + period", run("hyprctl dispatch movecurrentworkspacetomonitor DP-2"))
 
-
-
--- TEST
-hl.bind("SUPER + comma", run("notify-send TEST COMMA"))

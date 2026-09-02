@@ -14,12 +14,22 @@ hl.workspace_rule({ workspace = "1", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "2", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "3", monitor = "eDP-1" })
 
--- External monitor
-hl.workspace_rule({ workspace = "4", monitor = "DP-2" })
-hl.workspace_rule({ workspace = "5", monitor = "DP-2" })
-hl.workspace_rule({ workspace = "6", monitor = "DP-2" })
-hl.workspace_rule({ workspace = "7", monitor = "DP-2" })
-hl.workspace_rule({ workspace = "8", monitor = "DP-2" })
+local external_monitor = nil
+
+local handle = io.popen("/home/jinkx/.local/bin/get-external_monitor")
+
+if handle then
+    external_monitor = handle:read("*l")
+    handle:close()
+end
+
+if external_monitor and external_monitor ~= "" then
+    hl.workspace_rule({ workspace = "4", monitor = external_monitor })
+    hl.workspace_rule({ workspace = "5", monitor = external_monitor })
+    hl.workspace_rule({ workspace = "6", monitor = external_monitor })
+    hl.workspace_rule({ workspace = "7", monitor = external_monitor })
+    hl.workspace_rule({ workspace = "8", monitor = external_monitor })
+end
 
 -- Layer rules
 hl.layer_rule({

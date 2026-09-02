@@ -20,7 +20,8 @@ local startup = {
     "/usr/lib/xfce-polkit/xfce-polkit", -- Policy manager (prompts for sudo access if app requests)
     "hypridle", -- "Idle daemon"
     "~/.local/bin/dock", -- dock
-    "~/.local/bin/at_startup" -- Misc user defined custom shell scripts
+    "~/.local/bin/at_startup", -- Misc user defined custom shell scripts
+    "kanshi", -- Monitor Manager
 }
 
 hl.on("hyprland.start", function()
