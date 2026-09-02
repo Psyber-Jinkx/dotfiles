@@ -1,5 +1,6 @@
 export ZSH="$HOME/.config/oh-my-zsh"
 ZSH_THEME="lukerandall"
+eval "$(zoxide init zsh)"
 
 plugins=(
     git
