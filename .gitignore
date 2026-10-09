@@ -38,3 +38,6 @@ spicetify/Themes/Custom/user.cssyou're lame
 
 # Shell History
 zsh/.zsh_history
+
+__pycache__/
+*.pyc

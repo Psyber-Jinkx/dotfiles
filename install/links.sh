@@ -23,6 +23,7 @@ configs=(
   nvim
   qt6ct
   rofi
+  sillyfetch
   swaync
   themesw
   waybar
