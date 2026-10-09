@@ -1,0 +1,13 @@
+betterbird-bin
+bibata-cursor-theme
+brave-bin
+catppuccin-gtk-theme-mocha
+gruvbox-dark-gtk
+kripton-theme-git
+nordic-theme
+peaclock
+spicetify-cli
+tokyonight-gtk-theme-git
+vscodium-bin
+yay
+yay-debug
