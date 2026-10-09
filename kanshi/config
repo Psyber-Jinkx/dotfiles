@@ -1,6 +1,12 @@
+profile work3 {
+    output eDP-1 mode 1920x1080 position 0,0 scale 1.5
+    output "HP Inc. HP E24 G5 CNK33017DG" mode 1920x1080 position 1280,0 scale 1
+    output "Lenovo Group Limited P27h-30 V30DGR2H" mode 2560x1440 position 3200,0 scale 1
+}
+
 profile work {
-    output DP-2 mode 3840x1200 position 0,0
-    output eDP-1 mode 1920x1080 position 960,1200
+    output eDP-1 mode 1920x1080 position 0,0 scale 1.5
+    output "Lenovo Group Limited P27h-30 V30DGR2H" mode 2560x1440 position 1280,0 scale 1.25
 }
 
 profile home {

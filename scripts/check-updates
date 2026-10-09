@@ -1,0 +1,12 @@
+#! /bin/bash
+
+repo=$(checkupdates 2>/dev/null | wc -l)
+aur=$(yay -Qua 2>/dev/null | wc -l)
+
+total=$((repo + aur))
+
+if [ "$total" -eq 0 ]; then
+  echo "Fully Updated"
+else
+  echo "$total updates ($repo repo, $aur AUR)"
+fi

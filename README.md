@@ -305,6 +305,17 @@ Powered by Atuin.
 
 ---
 
+## New Machine Setup
+
+1. Clone dotfiles
+2. Create symlinks
+3. Install packages
+4. Configure Git
+5. Add SSH key
+6. Install Oh My Zsh
+7. Start Kanshi
+8. Import Atuin history
+
 ## TODO
 
 - Create install.sh bootstrap script

@@ -209,8 +209,8 @@ hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic", f
 hl.bind("SUPER + CTRL + S",  hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with SUPER + scroll
-hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind("SUPER + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind("SUPER + mouse_down",   hl.dsp.focus({ workspace = "e-1" }))
 
 -- Laptop specific function key binds
 hl.bind("XF86AudioNext",        run("playerctl next"),                            { locked = true })
@@ -239,6 +239,6 @@ hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 
 -- Move workspaces to different monitor with SUPER + ,/.
-hl.bind("SUPER + comma", run("hyprctl dispatch movecurrentworkspacetomonitor eDP-1"))
-hl.bind("SUPER + period", run("hyprctl dispatch movecurrentworkspacetomonitor DP-2"))
+hl.bind("SUPER + comma", run("hyprctl dispatch movecurrentworkspacetomonitor l"))
+hl.bind("SUPER + period", run("hyprctl dispatch movecurrentworkspacetomonitor r"))
 

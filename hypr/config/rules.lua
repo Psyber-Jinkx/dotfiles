@@ -9,27 +9,52 @@
 -- Workspace rules
 hl.workspace_rule({ workspace = "special:magic", layout = "dwindle" })
 
--- Laptop
-hl.workspace_rule({ workspace = "1", monitor = "eDP-1" })
-hl.workspace_rule({ workspace = "2", monitor = "eDP-1" })
-hl.workspace_rule({ workspace = "3", monitor = "eDP-1" })
+-- Monitors (matched by description so connector names like DP-6/DP-7 don't matter)
+local LENOVO = "Lenovo Group Limited P27h-30 V30DGR2H"
+local HP     = "HP Inc. HP E24 G5 CNK33017DG"
 
-local external_monitor = nil
-
-local handle = io.popen("/home/jinkx/.local/bin/get-external_monitor")
-
-if handle then
-  external_monitor = handle:read("*l")
-  handle:close()
+local names, descs = {}, {}
+local h = io.popen("hyprctl monitors 2>/dev/null")
+if h then
+  for line in h:lines() do
+    local n = line:match("^Monitor (%S+)")
+    if n then names[n] = true end
+    local d = line:match("^%s*description:%s*(.-)%s*$")
+    if d then descs[d] = true end
+  end
+  h:close()
 end
 
-if external_monitor and external_monitor ~= "" then
-  hl.workspace_rule({ workspace = "4", monitor = external_monitor })
-  hl.workspace_rule({ workspace = "5", monitor = external_monitor })
-  hl.workspace_rule({ workspace = "6", monitor = external_monitor })
-  hl.workspace_rule({ workspace = "7", monitor = external_monitor })
-  hl.workspace_rule({ workspace = "8", monitor = external_monitor })
+local function assign(monitor, first, last)
+  for ws = first, last do
+    hl.workspace_rule({ workspace = tostring(ws), monitor = monitor })
+  end
 end
+
+assign("desc:" .. LENOVO, 1, 3)
+assign("desc:" .. HP, 4, 6)
+assign("eDP-1", 7, 8)
+-- -- if descs[HP] and descs[LENOVO] then
+--   -- Work, three monitors: Lenovo 1-3, HP 4-6, laptop 7-8
+--   assign("desc:" .. LENOVO, 1, 3)
+--   assign("desc:" .. HP, 4, 6)
+--   assign("eDP-1", 7, 8)
+-- elseif descs[LENOVO] then
+--   -- Work, laptop + Lenovo
+--   assign("desc:" .. LENOVO, 1, 6)
+--   assign("eDP-1", 7, 8)
+-- elseif descs[HP] then
+--   -- Laptop + HP
+--   assign("desc:" .. HP, 1, 6)
+--   assign("eDP-1", 7, 8)
+-- elseif names["HDMI-A-1"] then
+--   -- Home
+--   assign("HDMI-A-1", 1, 6)
+--   assign("eDP-1", 7, 8)
+-- else
+--   -- Laptop only
+--   assign("eDP-1", 1, 8)
+-- end
 
 -- Layer rules
 hl.layer_rule({
@@ -72,12 +97,19 @@ hl.window_rule({
   persistent_size = true,
 })
 
+-- Built with table.concat: a "\" line continuation inside a Lua string inserts
+-- a newline and the next line's leading spaces, which broke the class matches.
 hl.window_rule({
   name = "Float by class",
   match = {
-    class = "blueman-manager|blueman-services|nwg-look|rog-control-center|org.qbittorrent.qBittorrent|kvantummanager|\
-                 org.gnome.seahorse.Application|xfce-polkit|org.polymc.PolyMC|engrampa|nm-connection-editor|system-config-printer|hyprland-share-picker|\
-                 org.bleachbit.BleachBit|vlc|exo-desktop-item-edit|xdg-desktop-portal-gtk|org.gnome.eog|qt6ct|xfce-polkit"
+    class = table.concat({
+      "blueman-manager", "blueman-services", "nwg-look", "rog-control-center",
+      "org.qbittorrent.qBittorrent", "kvantummanager",
+      "org.gnome.seahorse.Application", "xfce-polkit", "org.polymc.PolyMC",
+      "engrampa", "nm-connection-editor", "system-config-printer",
+      "hyprland-share-picker", "org.bleachbit.BleachBit", "vlc",
+      "exo-desktop-item-edit", "xdg-desktop-portal-gtk", "org.gnome.eog", "qt6ct",
+    }, "|"),
   },
 
   float = true,
@@ -227,7 +259,7 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  name = "Uzerburg",
+  name = "Ueberzug",
   match = {
     class = "ueberzugpp(.*)",
   },
