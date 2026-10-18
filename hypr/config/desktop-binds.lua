@@ -209,8 +209,3 @@ hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.bind("SUPER + U",
     run([[bash -c '(sleep 0.3; wtype "~/") &' ]]))
 
--- Arrow Key layer
-hl.bind("SUPER + ALT + H", run("wtype -k Left"))
-hl.bind("SUPER + ALT + J", run("wtype -k Down"))
-hl.bind("SUPER + ALT + K", run("wtype -k Up"))
-hl.bind("SUPER + ALT + L", run("wtype -k Right"))
