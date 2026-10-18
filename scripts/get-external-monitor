@@ -1,0 +1,3 @@
+#!/bin/bash
+
+hyprctl monitors -j | jq -r '.[] | select(.name != "eDP-1") | .name' | head -n1
