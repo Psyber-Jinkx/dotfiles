@@ -1,7 +1,8 @@
 #!/bin/bash
 
-cd "$HOME/.config/hypr/config/colors"
+GENERATED_DIR="$HOME/.dotfiles/generated/hypr"
+HYPR_DIR="$HOME/.config/hypr/config/colors"
 
-ln -fs "colors.$1.lua" init.lua
+ln -fs "$GENERATED_DIR/colors.$1.lua" "$HYPR_DIR/init.lua"
 
 hyprctl reload config-only

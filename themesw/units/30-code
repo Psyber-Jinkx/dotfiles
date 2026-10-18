@@ -1,35 +1,15 @@
 #!/bin/bash
 
-cd "$HOME/.config/VSCodium/User/"
+cd "$HOME/.config/VSCodium/User/" || exit 1
 
-case "$1" in
-    kripton)
-        THEME="Tokyo Night Dark Enhanced"
-        ;;
+THEME_FILE="$HOME/.dotfiles/themes/$1.conf"
 
-    tokyonight)
-        THEME="Tokyo Night Dark Enhanced"
-        ;;
+[[ -f "$THEME_FILE" ]] || exit 1
 
-    catppuccin)
-        THEME="Catppuccin Mocha"
-        ;;
-
-    gruvbox)
-        THEME="Gruvbox Dark Hard"
-        ;;
-
-    nord)
-        THEME="Nord"
-        ;;
-
-    *)
-        exit 1
-        ;;
-esac
+source "$THEME_FILE"
 
 TMP=$(mktemp)
 
-jq --arg theme "$THEME" \
+jq --arg theme "$VSCODE_THEME" \
     '.["workbench.colorTheme"] = $theme' \
     "settings.json" > "$TMP" && mv "$TMP" "settings.json"

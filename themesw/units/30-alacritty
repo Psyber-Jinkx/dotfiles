@@ -1,5 +1,6 @@
 #!/bin/bash
 
-cd "$HOME/.config/alacritty"
+GENERATED_DIR="$HOME/.dotfiles/generated/alacritty"
+ALACRITTY_DIR="$HOME/.config/alacritty"
 
-ln -fs "theme.$1.toml" theme.toml
+ln -fs "$GENERATED_DIR/theme.$1.toml" "$ALACRITTY_DIR/theme.toml"

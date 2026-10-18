@@ -1,8 +1,9 @@
 #!/bin/bash
 
-cd "$HOME/.config/nwg-dock-hyprland/colors"
+GENERATED_DIR="$HOME/.dotfiles/generated/dock"
+DOCK_DIR="$HOME/.config/nwg-dock-hyprland/colors"
 
-ln -fs "colors.$1.css" colors.css
+ln -fs "$GENERATED_DIR/colors.$1.css" "$DOCK_DIR/colors.css"
 
 pkill -f nwg-dock-hyprland
 

@@ -1,5 +1,6 @@
 #!/bin/bash
 
-cd "$HOME/.config/rofi/themes/colors"
+GENERATED_DIR="$HOME/.dotfiles/generated/rofi"
+ROFI_DIR="$HOME/.config/rofi/themes/colors"
 
-ln -fs "colors.$1.rasi" colors.rasi
+ln -fs "$GENERATED_DIR/colors.$1.rasi" "$ROFI_DIR/colors.rasi"

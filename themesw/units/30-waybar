@@ -1,0 +1,11 @@
+#!/bin/bash
+
+GENERATED_DIR="$HOME/.dotfiles/generated/waybar"
+WAYBAR_DIR="$HOME/.config/waybar/colors"
+
+ln -fs "$GENERATED_DIR/colors.$1.css" \
+       "$WAYBAR_DIR/colors.dark.css"
+
+pkill waybar
+
+waybar &

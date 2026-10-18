@@ -1,8 +1,9 @@
 #!/bin/bash
 
-cd "$HOME/.config/spicetify/Themes/Custom"
+GENERATED_DIR="$HOME/.dotfiles/generated/spotify"
+SPOTIFY_DIR="$HOME/.config/spicetify/Themes/Custom"
 
-ln -fs "CSS/$1.css" user.css
+ln -fs "$GENERATED_DIR/$1.css" "$SPOTIFY_DIR/user.css"
 
 spicetify refresh
 
