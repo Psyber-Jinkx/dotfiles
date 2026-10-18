@@ -64,10 +64,6 @@ hl.bind("SUPER + B", run(file_manager))
 hl.bind("SUPER + N", run(browser))
 hl.bind("SUPER + M", run(code))
 
--- Cycle current workspace layout 
-hl.bind("SUPER + tab",         run_script("cycle_layout"))
-hl.bind("SUPER + SHIFT + tab", run_script("cycle_layout --prev"))
-
 -- Reload hyprland config, I have misc.disable_autoreload = true
 hl.bind("SUPER + CTRL + R",    run("hyprctl reload"))
 
@@ -85,21 +81,6 @@ hl.bind("SUPER + F", function ()
     hl.dispatch(hl.dsp.window.center())
 end) -- Toggle window floating state and center it.
 
-hl.bind("SUPER + P", function ()
-    hl.dispatch(hl.dsp.window.float({ action = "off" }))
-    hl.dispatch(hl.dsp.window.pseudo())
-end) -- Pseudotiles window, ensure it's tiled
-
-
--- Current workspace layout based bindings 
-hl.bind("SUPER + W", layout_bind({ 
-    scrolling = hl.dsp.layout("colresize +conf"),   -- Scrolling:, set next column width from config
-    dwindle   = hl.dsp.layout("movetoroot active"), -- Dwindle: make active window the root window
-}))
-
-hl.bind("SUPER + SHIFT + W", layout_bind({
-    scrolling = hl.dsp.layout("colresize -conf"),  -- Scrolling: set previous column width from config
-}))
 
 hl.bind("SUPER + A", layout_bind({
     scrolling = hl.dsp.layout("swapcol l"),  -- Scrolling: swap column with left one
@@ -127,8 +108,6 @@ end)
 
 -- Group binds
 hl.bind("SUPER + O",            hl.dsp.group.toggle()) -- Create windows group
-hl.bind("SUPER + bracketleft",  hl.dsp.group.prev())   -- Show previous window in group
-hl.bind("SUPER + bracketright", hl.dsp.group.next())   -- Show next window in group
 
 -- Toggle swaync
 hl.bind("SUPER + T",              run("swaync-client -t"))
@@ -149,12 +128,6 @@ hl.bind("SUPER + MINUS",          run_script("volume -2"), {repeating = true})  
 hl.bind("SUPER + EQUAL",          run_script("volume +2"), {repeating = true})   -- Increase volume by 2
 
 hl.bind("SUPER + SPACE",          run("pkill -SIGRTMIN+1 -f nwg-dock-hyprland")) -- Hide / show dock 
-hl.bind("SUPER + period",         run("playerctl next"))                         -- Play next song
-hl.bind("SUPER + comma",          run("playerctl previous"))                     -- Play previous song
-hl.bind("SUPER + slash",          run("playerctl play-pause"))                   -- Play or pause song
-hl.bind("SUPER + SHIFT + slash",  run_script("auto_walls toggle"))               -- Toggle wallpapers cycling 
-hl.bind("SUPER + SHIFT + period", run_script("auto_walls next"))                 -- Set next wallpaper
-hl.bind("SUPER + SHIFT + comma",  run_script("auto_walls prev"))                 -- Set previous wallpaper
 
 hl.bind("Print",                  run_script("screenshot"))                      -- Screenshot
 hl.bind("SHIFT + Print",          run_script("screenshot --select"))             -- Screenshot selected area
