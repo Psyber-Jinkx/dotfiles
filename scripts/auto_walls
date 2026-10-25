@@ -19,8 +19,8 @@ def get_config(file='~/.config/auto_walls/config.json'):
 
     default_config = {  
         "interval"                : 30,
-        "wallpapers_dir"          : "~/Pictures",
-        "wallpapers_cli"          : "swww img <picture>",
+        "wallpapers_dir"          : "~/med/pictures/wallpapers",
+        "wallpapers_cli"          : "awww img <picture>",
         "keyboard_cli"            : "rogauracore single_static <color>",
         "keyboard_transition_cli" : "rogauracore single_breathing <prev> <color> 3",
         "transition_duration"     : 1.1,
